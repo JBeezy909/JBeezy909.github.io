@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosaic Speech & Language Therapy PLLC</title>
+    <meta name="description" content="Trilingual speech therapy services in English, Arabic, and Spanish. Serving Chicago families with compassionate, evidence-based care.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1f2937;
+            --secondary: #374151;
+            --accent: #6b7280;
+            --gold: #c5a572;
+            --blue: #87ceeb;
+            --emerald: #2d7a32;
+            --background: #f9fafb;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+            --soft-gold: #f7f3ea;
+            --soft-blue: #eaf6ff;
+            --border: #e5e7eb;
+            
+            /* Footer variables */
+            --bg: #ffffff;
+            --fg: #0c0a09;
+            --muted: rgba(12, 10, 9, 0.72);
+            --muted2: rgba(12, 10, 9, 0.56);
+            --line: rgba(12, 10, 9, 0.14);
+            --footer-accent: #d4c5a9;
+            --buttonFrom: #d4c5a9;
+            --buttonTo: #bc9a6a;
+            --maxw: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--background);
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* PAGE NAVIGATION */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+
+        /* NAVBAR STYLES */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: white;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .navbar.scrolled {
+            border-bottom: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 68px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            padding: 0.25rem;
+            outline: none;
+            text-decoration: none;
+        }
+
+        .navbar-logo-img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .navbar-brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-brand-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--emerald);
+            letter-spacing: -0.02em;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            line-height: 1.1;
+        }
+
+        .navbar-brand-subtitle {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-top: 1px;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            outline: none;
+            font-family: system-ui, -apple-system, sans-serif;
+            transition: color 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--emerald);
+            font-weight: 600;
+        }
+
+        /* MAIN CONTENT STYLES */
+        .section {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .btn {
+            padding: 1rem 1.75rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--emerald), var(--blue));
+            color: #fff;
+            box-shadow: 0 6px 18px rgba(45, 122, 50, 0.28);
+        }
+
+        .btn-light {
+            background: #fff;
+            color: var(--emerald);
+            box-shadow: 0 4px 14px 0 rgba(0,0,0,.1);
+            border: 2px solid var(--border);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--white), var(--soft-blue));
+            padding-top: 2.5rem;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .hero-logo {
+            width: 280px;
+            height: 280px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .hero-title-section {
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 700;
+            color: var(--emerald);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-contact {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .hero-contact > div:first-child {
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-email {
+            color: var(--emerald);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* Zig-zag separator */
+        .zig-band {
+            --zig-size: 24px;
+            position: relative;
+            height: calc(var(--zig-size) + var(--zig-size) / 2);
+            background: var(--background);
+            transform: none;
+        }
+
+        .zig-band.flip {
+            transform: scaleY(-1);
+        }
+
+        .zig-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(-45deg, transparent 75%, var(--zig-color) 0) 0 0 / var(--zig-size) var(--zig-size),
+                linear-gradient(45deg, transparent 75%, var(--zig-color) 0) 0 calc(var(--zig-size)/2) / var(--zig-size) var(--zig-size);
+            opacity: 1;
+        }
+
+        /* About Section */
+        .about-spotlight {
+            padding: 3.4rem 0 3.8rem;
+            background: #fff;
+        }
+
+        .am-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.6rem;
+        }
+
+        .am-grid {
+            display: grid;
+            grid-template-columns: minmax(420px, 520px) minmax(0, 1fr);
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .am-photo {
+            position: relative;
+            margin: 0;
+        }
+
+        .am-card {
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            border-radius: 22px;
+            background: #fff;
+            border: 1px solid rgba(17, 24, 39, 0.08);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
+            width: 100%;
+        }
+
+        .am-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .am-accent {
+            position: absolute;
+            border-radius: 26px;
+            pointer-events: none;
+        }
+
+        .am-accent--tl {
+            top: -16px;
+            left: -16px;
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            border: 8px solid var(--gold);
+            z-index: 1;
+            opacity: 0.95;
+        }
+
+        .am-body {
+            min-width: 0;
+            text-align: left;
+        }
+
+        .am-title {
+            margin: 0 0 0.8rem;
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: var(--primary);
+        }
+
+        .am-title-accent {
+            color: var(--gold);
+        }
+
+        .am-copy {
+            margin: 0.6rem 0 0;
+            color: var(--secondary);
+            font-size: 1.14rem;
+            line-height: 1.9;
+            max-width: 72ch;
+        }
+
+        /* Languages Section */
+        .languages-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .languages-title h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .languages-title p {
+            color: var(--accent);
+            margin: 0;
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .language-card {
+            background: var(--white);
+            border: 2px solid;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 140px;
+        }
+
+        .language-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .language-name {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .language-native {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Areas of Expertise */
+        .expertise-title {
+            text-align: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .expertise-title h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .mz-piece {
+            position: relative;
+            border: 2px solid;
+            border-radius: 16px;
+            padding: 1rem 1rem 1.1rem;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            transform-origin: center;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+            text-align: left;
+        }
+
+        .shape-round { border-radius: 22px; }
+        .shape-pill { border-radius: 28px; }
+        .shape-cut { 
+            border-radius: 18px; 
+            clip-path: polygon(0 0, 96% 0, 100% 12%, 100% 100%, 0 100%); 
+        }
+        .shape-soft { border-radius: 20px; }
+
+        .tilt-1 { transform: rotate(-0.6deg); }
+        .tilt-2 { transform: rotate(0.4deg); }
+        .tilt-3 { transform: rotate(-0.3deg); }
+        .tilt-4 { transform: rotate(0.2deg); }
+        .tilt-5 { transform: rotate(0deg); }
+
+        .mz-piece:hover,
+        .mz-piece:focus-visible {
+            transform: rotate(0deg) translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.06);
+            outline: none;
+        }
+
+        .mz-shard {
+            position: absolute;
+            inset: auto -18% -16% auto;
+            width: 65%;
+            height: 40%;
+            border-radius: 24px;
+            filter: blur(0.5px);
+            transform: rotate(-8deg);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .mz-piece:hover .mz-shard {
+            transform: rotate(-2deg) translateY(-6px);
+            opacity: 0.9;
+        }
+
+        .mz-title {
+            margin: 0 0 0.35rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        .mz-desc {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        .mz-languages {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding-top: 3rem;
+            padding-bottom: 3.5rem;
+            background: transparent;
+        }
+
+        .cta-ring-wrap {
+            position: relative;
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+        }
+
+        .cta-ring {
+            width: 520px;
+            height: 520px;
+            border-radius: 50%;
+            background: conic-gradient(from 180deg, var(--gold), var(--blue), var(--emerald), var(--gold));
+            filter: saturate(1.05);
+            opacity: 0.9;
+        }
+
+        .cta-core {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            background: radial-gradient(100% 100% at 50% 0%, var(--soft-blue), var(--soft-gold));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            gap: 1.5rem;
+        }
+
+        .cta-core h2 {
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+            max-width: 280px;
+        }
+
+        .cta-core p {
+            margin: 0;
+            color: var(--secondary);
+            line-height: 1.4;
+        }
+
+        .cta-note {
+            font-size: 0.88rem;
+            color: var(--accent);
+        }
+
+        /* SERVICES PAGE STYLES */
+        .services-hero {
+            background: linear-gradient(135deg, var(--white) 0%, var(--soft-blue) 100%);
+            padding-top: 2.75rem;
+        }
+
+        .services-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .therapy-mode-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,.05);
+            transition: all .2s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+        }
+
+        .therapy-mode-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,.1);
+            transform: translateY(-2px);
+        }
+
+        .pricing-table {
+            background: var(--white); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 2px solid var(--border); 
+            box-shadow: 0 10px 25px rgba(0,0,0,.08);
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, var(--light-bg), var(--soft-blue));
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid var(--border);
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            font-weight: 800; 
+            color: var(--primary); 
+            font-size: 1rem;
+        }
+
+        .pricing-row {
+            display: grid; 
+            grid-template-columns: 2fr 1fr 1fr; 
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-row.highlight {
+            background: linear-gradient(135deg, var(--soft-gold), #fef3c7);
+        }
+
+        .pricing-row.popular {
+            background: linear-gradient(135deg, var(--soft-blue), #dbeafe);
+        }
+
+        .popular-badge {
+            position: absolute; 
+            top: -12px; 
+            left: 20px;
+            background: linear-gradient(135deg, var(--blue), #5dade2); 
+            color: #fff;
+            padding: 6px 12px; 
+            border-radius: 12px; 
+            font-weight: 800; 
+            font-size: .8rem;
+        }
+
+        .steps-grid {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: 1.5rem;
+        }
+
+        .step-card {
+            background: var(--white); 
+            border: 3px solid var(--border); 
+            border-radius: 18px; 
+            padding: 2rem; 
+            box-shadow: 0 8px 25px rgba(0,0,0,.06);
+            transition: all .3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .quote-section {
+            background: var(--soft-gold);
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .quote-box {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quote-content {
+            background: var(--white);
+            border-left: 6px solid var(--gold);
+            padding: 2.5rem;
+            border-radius: 16px;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--primary);
+            box-shadow: 0 8px 25px rgba(0,0,0,.08);
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* FOOTER STYLES */
+        .footer-root {
+            background: var(--bg);
+            color: var(--fg);
+            width: 100%;
+        }
+
+        .cta-band {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 4.5rem 1.5rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.05rem;
+        }
+
+        .kicker {
+            margin: 0;
+            letter-spacing: 0.22em;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--muted2);
+        }
+
+        .cta-title {
+            margin: 0;
+            font-size: clamp(2rem, 3.6vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.12;
+        }
+
+        .cta-subtitle {
+            margin: 0.3rem 0 0;
+            max-width: 60ch;
+            color: var(--muted);
+            line-height: 1.55;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .contact-info {
+            margin: 0.5rem 0;
+        }
+
+        .email-link {
+            color: var(--emerald);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .email-link:hover {
+            background-color: rgba(45, 122, 50, 0.1);
+            text-decoration: underline;
+        }
+
+        .email-link:focus-visible {
+            outline: 2px solid var(--emerald);
+            outline-offset: 2px;
+        }
+
+        .copyright-top {
+            margin: 0.8rem 0 0;
+            font-size: 0.9rem;
+            color: var(--muted2);
+        }
+
+        .divider {
+            border: 0;
+            border-top: 1px solid var(--line);
+            margin: 2rem 0 0;
+        }
+
+        .bottom-grid {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 1rem 1.5rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-lockup {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 0;
+        }
+
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+            min-width: 0;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .brand-tag {
+            color: var(--muted2);
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-self: center;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--fg);
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links a:focus-visible {
+            outline: 2px solid var(--footer-accent);
+            outline-offset: 2px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            justify-self: end;
+            font-style: normal;
+            text-align: right;
+        }
+
+        .footer-contact a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 980px) {
+            .container {
+                padding: 0 1rem !important;
+            }
+            .am-grid {
+                grid-template-columns: minmax(360px, 440px) 1fr;
+                gap: 2rem;
+            }
+            .mosaic-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .cta-band {
+                padding: 3.25rem 1rem 1.5rem;
+                gap: 0.9rem;
+            }
+            .bottom-grid {
+                grid-template-columns: 1fr;
+                row-gap: 0.75rem;
+                text-align: center;
+            }
+            .footer-links {
+                justify-self: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1.25rem;
+            }
+            .footer-contact {
+                justify-self: center;
+                text-align: center;
+            }
+            .brand-lockup {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .languages-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .pricing-header,
+            .pricing-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .about-spotlight {
+                padding: 2.8rem 0 3.2rem;
+            }
+            .am-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .am-photo {
+                justify-self: center;
+                width: 100%;
+                max-width: 480px;
+            }
+            .am-body {
+                text-align: center;
+            }
+            .am-copy {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 0 1rem !important;
+                height: 60px !important;
+            }
+            .navbar-logo-img {
+                width: 32px !important;
+                height: 32px !important;
+            }
+            .navbar-brand-name {
+                font-size: 1.1rem !important;
+            }
+            .navbar-nav {
+                gap: 1.5rem !important;
+            }
+            .hero-content {
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .mosaic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .navbar-brand-subtitle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .cta-ring {
+                width: 360px;
+                height: 360px;
+            }
+            .cta-core {
+                width: 328px;
+                height: 328px;
+                padding: 1.25rem;
+            }
+            .cta-core h2 {
+                font-size: 1.45rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <a href="#" class="navbar-logo" onclick="showPage('home')">
+                <img src="Adobe Express - file (6).png" 
+                     alt="Mosaic Logo" 
+                     class="navbar-logo-img"
+                     id="navbar-logo-img">
+                <div class="navbar-brand-text">
+                    <div class="navbar-brand-name">MOSAIC</div>
+                    <div class="navbar-brand-subtitle">Speech Therapy</div>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="navbar-nav">
+                <a href="#" class="nav-link active" id="nav-home" onclick="showPage('home')">Home</a>
+                <a href="#" class="nav-link" id="nav-services" onclick="showPage('services')">Services</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page active">
+        <!-- Hero Section -->
+        <section class="section hero">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Logo -->
+                    <img src="Adobe Express - file (6).png" 
+                         alt="Mosaic Speech & Language Therapy Logo" 
+                         class="hero-logo"
+                         id="hero-logo-img">
+                    
+                    <!-- Title -->
+                    <div class="hero-title-section">
+                        <h1 class="hero-title">
+                            MOSAIC SPEECH &<br>LANGUAGE THERAPY PLLC
+                        </h1>
+                        
+                        <!-- Contact info -->
+                        <div class="hero-contact">
+                            <div>Speech Therapy Services</div>
+                            <div class="hero-email">
+                                dana@mosaicspeech.org
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zig-zag Separator -->
+        <div class="zig-band" style="--zig-color: var(--gold); --zig-bg: var(--background); --zig-size: 24px;"></div>
+
+        <!-- About Me Section -->
+        <section id="about-spotlight" class="about-spotlight">
+            <div class="am-wrap">
+                <div class="am-grid">
+                    <figure class="am-photo">
+                        <span class="am-accent am-accent--tl" aria-hidden="true"></span>
+                        <div class="am-card">
+                            <img src="IMG_4378.JPEG" 
+                                 alt="Dana Zakieh, MS, CCC-SLP" 
+                                 loading="lazy"
+                                 id="dana-photo">
+                        </div>
+                    </figure>
+
+                    <div class="am-body">
+                        <h2 class="am-title">
+                            About <span class="am-title-accent">Me</span>
+                        </h2>
+
+                        <p class="am-copy">
+                            As a trilingual Speech-Language Pathologist, I have always been passionate about working with linguistically and culturally diverse patients. Growing up in an Arabic speaking household, I know and appreciate the vast language opportunities that accompany being bilingual.
+                        </p>
+
+                        <p class="am-copy">
+                            My academic career started at Northwestern University where I completed my masters in Speech-Language Pathology. It was during this training that I learned how to best serve diverse patient populations.
+                        </p>
+
+                        <p class="am-copy">
+                            I look forward to working with your family. We'll piece together unique intervention strategies that will best support your loved one's communication, just like a mosaic!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zig-zag Separator -->
+        <div class="zig-band" style="--zig-color: var(--gold); --zig-bg: var(--background); --zig-size: 24px;"></div>
+
+        <!-- Languages Offered Section -->
+        <section class="section">
+            <div class="container">
+                <div class="languages-title">
+                    <h2>Languages Offered</h2>
+                    <p>
+                        <strong>Colloquially proficient in Arabic (Syrian dialect)</strong><br>
+                        <strong>Academically proficient in Spanish</strong>
+                    </p>
+                </div>
+
+                <div class="languages-grid">
+                    <div class="language-card" style="border-color: var(--gold);">
+                        <div class="language-icon" style="background: var(--gold);">EN</div>
+                        <div class="language-name">English</div>
+                        <div class="language-native" style="color: var(--gold);">English</div>
+                    </div>
+
+                    <div class="language-card" style="border-color: var(--blue);">
+                        <div class="language-icon" style="background: var(--blue);">AR</div>
+                        <div class="language-name">Arabic</div>
+                        <div class="language-native" style="color: var(--blue);">العربية (Syrian Dialect)</div>
+                    </div>
+
+                    <div class="language-card" style="border-color: var(--emerald);">
+                        <div class="language-icon" style="background: var(--emerald);">ES</div>
+                        <div class="language-name">Spanish</div>
+                        <div class="language-native" style="color: var(--emerald);">Español</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zig-zag Separator -->
+        <div class="zig-band flip" style="--zig-color: var(--blue); --zig-bg: var(--background); --zig-size: 24px;"></div>
+
+        <!-- Areas of Expertise Section -->
+        <section class="section" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
+            <div class="container">
+                <div class="expertise-title">
+                    <h2>Areas of Expertise</h2>
+                </div>
+
+                <div class="mosaic-grid">
+                    <div class="mz-piece tilt-1 shape-round" style="border-color: rgba(197, 165, 114, 0.5);">
+                        <span class="mz-shard" style="background: rgba(197, 165, 114, 0.1);"></span>
+                        <h3 class="mz-title" style="color: var(--primary);">Early Intervention (Ages 1-3)</h3>
+                        <p class="mz-desc" style="color: var(--secondary);">Available in English, Arabic and Spanish</p>
+                        <div class="mz-languages" style="color: var(--gold);">
+                            Available in: English, Arabic, Spanish
+                        </div>
+                    </div>
+
+                    <div class="mz-piece tilt-2 shape-pill" style="border-color: rgba(135, 206, 235, 0.5);">
+                        <span class="mz-shard" style="background: rgba(135, 206, 235, 0.1);"></span>
+                        <h3 class="mz-title" style="color: var(--primary);">Expressive/Receptive Language Disorders</h3>
+                        <p class="mz-desc" style="color: var(--secondary);">Language disorders consisting of difficulties with understanding or using spoken or written language.</p>
+                        <div class="mz-languages" style="color: var(--blue);">
+                            Available in: English, Spanish
+                        </div>
+                    </div>
+
+                    <div class="mz-piece tilt-3 shape-cut" style="border-color: rgba(45, 122, 50, 0.5);">
+                        <span class="mz-shard" style="background: rgba(45, 122, 50, 0.1);"></span>
+                        <h3 class="mz-title" style="color: var(--primary);">Phonological Disorders</h3>
+                        <p class="mz-desc" style="color: var(--secondary);">Speech sound disorder that involves difficulties with a sound system, and use of incorrect speech patterns.</p>
+                        <div class="mz-languages" style="color: var(--emerald);">
+                            Available in: English, Spanish, Arabic
+                        </div>
+                    </div>
+
+                    <div class="mz-piece tilt-4 shape-soft" style="border-color: rgba(197, 165, 114, 0.5);">
+                        <span class="mz-shard" style="background: rgba(197, 165, 114, 0.1);"></span>
+                        <h3 class="mz-title" style="color: var(--primary);">Childhood Apraxia of Speech (CAS)</h3>
+                        <p class="mz-desc" style="color: var(--secondary);">CAS is a motor speech disorder which is characterized by difficulty planning and movements needed for speech.</p>
+                        <div class="mz-languages" style="color: var(--gold);">
+                            Available in: English, Spanish, Arabic
+                        </div>
+                    </div>
+
+                    <div class="mz-piece tilt-5 shape-round" style="border-color: rgba(135, 206, 235, 0.5);">
+                        <span class="mz-shard" style="background: rgba(135, 206, 235, 0.1);"></span>
+                        <h3 class="mz-title" style="color: var(--primary);">Articulation Disorders</h3>
+                        <p class="mz-desc" style="color: var(--secondary);">Articulation disorders consist of difficulties producing speech sounds correctly due to incorrect placement or problem with mouth, tongue, or lip movements.</p>
+                        <div class="mz-languages" style="color: var(--blue);">
+                            Available in: English, Spanish, Arabic
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zig-zag Separator -->
+        <div class="zig-band flip" style="--zig-color: var(--emerald); --zig-bg: var(--background); --zig-size: 26px;"></div>
+
+        <!-- Ready to Begin Section -->
+        <section class="section cta-section">
+            <div class="container">
+                <div class="cta-ring-wrap">
+                    <div class="cta-ring" aria-hidden="true"></div>
+                    <div class="cta-core">
+                        <h2>Ready to Begin Your Communication Journey?</h2>
+                        <a href="https://book.carepatron.com/Mosaic-Speech---Language-Therapy-PLLC/All?p=X66LKS5VRDGHzKUtFWAIPw&i=C-RV3yqe"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-primary">
+                            Book Free Consultation
+                        </a>
+                        <p class="cta-note">15-minute discovery call<br>Available in English, Arabic, or Spanish</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services-page" class="page">
+        <!-- Hero Section -->
+        <section class="section services-hero">
+            <div class="container">
+                <div style="text-align: center; position: relative;">
+                    <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; color: var(--emerald); letter-spacing: -.01em; margin-bottom: .8rem; font-family: 'Playfair Display', 'Times New Roman', serif; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        Services
+                    </h1>
+                    <p style="color: var(--accent); max-width: 680px; margin: 0 auto 2rem; font-size: 1.2rem;">
+                        Transparent pricing, flexible delivery models, and speech therapy that honors your family's languages and values.
+                    </p>
+                    
+                    <div style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--secondary); font-weight: 500; margin-bottom: 2rem;">
+                        <div style="color: var(--emerald); font-weight: 600; font-size: 1.05rem;">
+                            dana@mosaicspeech.org
+                        </div>
+                    </div>
+                    
+                    <a href="mailto:dana@mosaicspeech.org?subject=Free Consultation Request&body=Hi Dana,%0D%0A%0D%0AI'd like to schedule a free consultation for speech therapy services.%0D%0A%0D%0AThank you!"
+                       class="btn btn-primary">
+                        Book a Free Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zig-zag Separator -->
+        <div class="zig-band" style="--zig-color: var(--gold); --zig-bg: var(--background); --zig-size: 24px;"></div>
+
+        <!-- Therapy Modes Section -->
+        <section class="section" style="background: var(--white); padding-top: 3rem;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--primary);">Mode of Service Delivery</h2>
+                    <p style="color: var(--accent); margin-top: .5rem; font-size: 1.1rem;">
+                        Choose what fits your family — all three deliver strong outcomes.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- In-Home Therapy -->
+                    <div class="therapy-mode-card">
+                        <div style="margin-bottom: 1.2rem;">
+                            <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: 0.6rem; line-height: 1.2;">
+                                In-Home Therapy
+                            </h3>
+                            <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gold); background: rgba(197, 165, 114, 0.15); padding: 6px 10px; border-radius: 6px;">
+                                Most Hands-On
+                            </span>
+                        </div>
+                        <p style="color: var(--secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 1.8rem;">
+                            Pre-scheduled in-home sessions for evaluations and treatment, providing therapy in the client's most natural environment.
+                        </p>
+                        <div style="margin: 0; flex: 1;">
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--gold); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Authentic practice in real-life contexts</div>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--gold); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Family coaching and carryover strategies</div>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--gold); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Familiar setting reduces anxiety</div>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--gold); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Functional goals integrated into routines</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Virtual Therapy -->
+                    <div class="therapy-mode-card">
+                        <div style="margin-bottom: 1.2rem;">
+                            <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: 0.6rem; line-height: 1.2;">
+                                Virtual Therapy
+                            </h3>
+                            <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--blue); background: rgba(135, 206, 235, 0.15); padding: 6px 10px; border-radius: 6px;">
+                                Flexible & Convenient
+                            </span>
+                        </div>
+                        <p style="color: var(--secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 1.8rem;">
+                            HIPAA-compliant online sessions with interactive tools, flexible scheduling, and measurable outcomes comparable to in-person care.
+                        </p>
+                        <div style="margin: 0; flex: 1;">
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--blue); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Flexible scheduling for busy families</div>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--blue); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">No commute or setup required</div>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--blue); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Engaging, interactive digital activities</div>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--blue); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Proven effective outcomes</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Daycare Therapy -->
+                    <div class="therapy-mode-card">
+                        <div style="margin-bottom: 1.2rem;">
+                            <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: 0.6rem; line-height: 1.2;">
+                                Daycare Therapy
+                            </h3>
+                            <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--emerald); background: rgba(45, 122, 50, 0.15); padding: 6px 10px; border-radius: 6px;">
+                                Educational Setting
+                            </span>
+                        </div>
+                        <p style="color: var(--secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 1.8rem;">
+                            Therapy in your child's pre-school or daycare environment.
+                        </p>
+                        <div style="margin: 0; flex: 1;">
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--emerald); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Therapy in familiar educational setting</div>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--emerald); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Collaboration with teachers and staff</div>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--emerald); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Integration with daily learning activities</div>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.8rem;">
+                                <div style="color: var(--emerald); font-size: 1.1rem; font-weight: 800; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; margin-top: 3px; flex-shrink: 0;">•</div>
+                                <div style="color: var(--secondary); font-size: 0.95rem; line-height: 1.5; flex: 1;">Social context for communication goals</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zig-zag Separator -->
+        <div class="zig-band flip" style="--zig-color: var(--blue); --zig-bg: var(--background); --zig-size: 24px;"></div>
+
+        <!-- Pricing Section -->
+        <section class="section" style="background: var(--white); padding-top: 3rem;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--primary);">Pricing</h2>
+                </div>
+
+                <div class="pricing-table">
+                    <div class="pricing-header">
+                        <div>SERVICE</div>
+                        <div style="text-align: center;">DURATION</div>
+                        <div style="text-align: right;">INVESTMENT</div>
+                    </div>
+
+                    <div class="pricing-row highlight">
+                        <div>
+                            <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem;">Free Consultation</div>
+                            <div style="color: var(--accent); font-size: 1rem; margin-top: 4px;">Discovery call to ensure we're the right fit</div>
+                        </div>
+                        <div style="text-align: center; color: var(--accent); font-weight: 600;">15 minutes</div>
+                        <div style="text-align: right; font-weight: 900; font-size: 1.2rem; color: var(--gold);">FREE</div>
+                    </div>
+
+                    <div class="pricing-row">
+                        <div>
+                            <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem;">English Evaluation</div>
+                            <div style="color: var(--accent); font-size: 1rem; margin-top: 4px;">Comprehensive speech & language assessment</div>
+                        </div>
+                        <div style="text-align: center; color: var(--accent); font-weight: 600;">90–120 minutes</div>
+                        <div style="text-align: right; font-weight: 900; font-size: 1.2rem; color: var(--primary);">$300</div>
+                    </div>
+
+                    <div class="pricing-row popular">
+                        <span class="popular-badge">Popular</span>
+                        <div>
+                            <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem;">Bilingual Evaluation</div>
+                            <div style="color: var(--accent); font-size: 1rem; margin-top: 4px;">Assessment in Arabic or Spanish plus English</div>
+                        </div>
+                        <div style="text-align: center; color: var(--accent); font-weight: 600;">90–120 minutes</div>
+                        <div style="text-align: right; font-weight: 900; font-size: 1.2rem; color: var(--primary);">$350</div>
+                    </div>
+
+                    <div class="pricing-row">
+                        <div>
+                            <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem;">Therapy Session (50 min)</div>
+                            <div style="color: var(--accent); font-size: 1rem; margin-top: 4px;">Standard individual therapy session</div>
+                        </div>
+                        <div style="text-align: center; color: var(--accent); font-weight: 600;">50 minutes</div>
+                        <div style="text-align: right; font-weight: 900; font-size: 1.2rem; color: var(--primary);">$80</div>
+                    </div>
+
+                    <div class="pricing-row">
+                        <div>
+                            <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem;">Therapy Session (30 min)</div>
+                            <div style="color: var(--accent); font-size: 1rem; margin-top: 4px;">Shorter session for younger children</div>
+                        </div>
+                        <div style="text-align: center; color: var(--accent); font-weight: 600;">30 minutes</div>
+                        <div style="text-align: right; font-weight: 900; font-size: 1.2rem; color: var(--primary);">$60</div>
+                    </div>
+
+                    <div class="pricing-row">
+                        <div>
+                            <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem;">Travel Fee</div>
+                            <div style="color: var(--accent); font-size: 1rem; margin-top: 4px;">Applied to in-home sessions</div>
+                        </div>
+                        <div style="text-align: center; color: var(--accent); font-weight: 600;">Per session</div>
+                        <div style="text-align: right; font-weight: 900; font-size: 1.2rem; color: var(--primary);">$10</div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, var(--light-bg), var(--soft-gold)); border-top: 2px solid var(--border); padding: 1.5rem 2rem; text-align: center; color: var(--accent); font-size: 1rem;">
+                        All prices in USD. Travel fee applies to in-home sessions.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zig-zag Separator -->
+        <div class="zig-band flip" style="--zig-color: var(--emerald); --zig-bg: var(--background); --zig-size: 24px;"></div>
+
+        <!-- What to Expect Section -->
+        <section class="section" style="background: var(--white); padding-top: 3rem;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--primary);">What to Expect</h2>
+                </div>
+
+                <ol class="steps-grid">
+                    <li class="step-card">
+                        <div style="font-weight: 800; color: var(--primary); margin-bottom: .5rem; font-size: 1.2rem;">
+                            1) Free Consultation
+                        </div>
+                        <div style="color: var(--secondary); font-size: 1.05rem; line-height: 1.5;">
+                            We discuss your concerns, languages used at home, and goals for therapy.
+                        </div>
+                    </li>
+                    <li class="step-card">
+                        <div style="font-weight: 800; color: var(--primary); margin-bottom: .5rem; font-size: 1.2rem;">
+                            2) Evaluation
+                        </div>
+                        <div style="color: var(--secondary); font-size: 1.05rem; line-height: 1.5;">
+                            We assess strengths & needs (monolingual or multilingual) and build a plan.
+                        </div>
+                    </li>
+                    <li class="step-card">
+                        <div style="font-weight: 800; color: var(--primary); margin-bottom: .5rem; font-size: 1.2rem;">
+                            3) Personalized Therapy
+                        </div>
+                        <div style="color: var(--secondary); font-size: 1.05rem; line-height: 1.5;">
+                            Weekly sessions with home carryover; clear updates and progress check-ins.
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <div class="container">
+                <div class="quote-box">
+                    <div class="quote-content">
+                        "We'll piece together unique intervention strategies that will best support your loved one's communication — just like a mosaic!"
+                    </div>
+                    <div class="quote-author">
+                        — Dana Zakieh, MS, CCC-SLP
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-root" role="contentinfo">
+        <!-- Top CTA Band -->
+        <section class="cta-band">
+            <p class="kicker">Empowering voices, building confidence.</p>
+            <h2 class="cta-title">Request More Information</h2>
+            <p class="cta-subtitle">
+                Speech therapy serving Chicago families with compassionate, evidence-based care.
+            </p>
+            <div class="contact-info">
+                <a href="mailto:dana@mosaicspeech.org" class="email-link">
+                    dana@mosaicspeech.org
+                </a>
+            </div>
+            <p class="copyright-top">
+                © 2025 Mosaic Speech Therapy, PLLC
+            </p>
+        </section>
+        
+        <hr class="divider">
+        
+        <!-- Bottom Bar (3 columns) -->
+        <section class="bottom-grid">
+            <!-- Left: Brand lockup with logo -->
+            <div class="brand-lockup" aria-label="Brand">
+                <img class="brand-logo"
+                     src="Adobe Express - file (6).png"
+                     alt="Mosaic Speech Therapy logo"
+                     loading="lazy"
+                     width="44"
+                     height="44"
+                     id="footer-logo-img">
+                <div class="brand-text">
+                    <span class="brand-name">Mosaic Speech Therapy</span>
+                    <span class="brand-tag">Greater Chicago Area</span>
+                </div>
+            </div>
+            
+            <!-- Center: Quick Links -->
+            <nav class="footer-links" aria-label="Footer">
+                <a href="#" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('services')">Services</a>
+            </nav>
+            
+            <!-- Right: Contact -->
+            <address class="footer-contact" aria-label="Contact information">
+                <a href="mailto:dana@mosaicspeech.org">dana@mosaicspeech.org</a>
+            </address>
+        </section>
+    </footer>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId + '-page').classList.add('active');
+            
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.getElementById('nav-' + pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            let isScrolled = false;
+
+            function handleScroll() {
+                const scrolled = window.scrollY > 8;
+                if (scrolled !== isScrolled) {
+                    isScrolled = scrolled;
+                    if (scrolled) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+
+            // Button hover effects
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Nav link hover effects
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.color = 'var(--emerald)';
+                    }
+                });
+                link.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.color = 'var(--accent)';
+                    }
+                });
+            });
+
+            // Mosaic piece hover effects
+            const pieces = document.querySelectorAll('.mz-piece');
+            pieces.forEach(piece => {
+                piece.addEventListener('mouseenter', function() {
+                    this.style.transform = 'rotate(0deg) translateY(-2px)';
+                    this.style.boxShadow = '0 10px 20px rgba(0,0,0,.08)';
+                    this.style.borderColor = 'rgba(0,0,0,.06)';
+                    
+                    const shard = this.querySelector('.mz-shard');
+                    if (shard) {
+                        shard.style.transform = 'rotate(-2deg) translateY(-6px)';
+                        shard.style.opacity = '0.9';
+                    }
+                });
+                
+                piece.addEventListener('mouseleave', function() {
+                    const originalClass = this.className;
+                    if (originalClass.includes('tilt-1')) {
+                        this.style.transform = 'rotate(-0.6deg)';
+                    } else if (originalClass.includes('tilt-2')) {
+                        this.style.transform = 'rotate(0.4deg)';
+                    } else if (originalClass.includes('tilt-3')) {
+                        this.style.transform = 'rotate(-0.3deg)';
+                    } else if (originalClass.includes('tilt-4')) {
+                        this.style.transform = 'rotate(0.2deg)';
+                    } else {
+                        this.style.transform = 'rotate(0deg)';
+                    }
+                    this.style.boxShadow = '0 8px 22px rgba(0,0,0,.06)';
+                    this.style.borderColor = '';
+                    
+                    const shard = this.querySelector('.mz-shard');
+                    if (shard) {
+                        shard.style.transform = 'rotate(-8deg)';
+                        shard.style.opacity = '';
+                    }
+                });
+            });
+
+            // Therapy mode card hover effects
+            const therapyCards = document.querySelectorAll('.therapy-mode-card');
+            therapyCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 8px 25px rgba(0,0,0,.1)';
+                    this.style.transform = 'translateY(-2px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '0 4px 12px rgba(0,0,0,.05)';
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Step card hover effects
+            const stepCards = document.querySelectorAll('.step-card');
+            stepCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Image loading with fallbacks
+            const imageElements = [
+                { id: 'navbar-logo-img', fallback: 'https://via.placeholder.com/36x36/2d7a32/ffffff?text=M' },
+                { id: 'hero-logo-img', fallback: 'https://via.placeholder.com/280x280/2d7a32/ffffff?text=MOSAIC+SPEECH' },
+                { id: 'dana-photo', fallback: 'https://via.placeholder.com/800x1000/f3f4f6/6b7280?text=Dana+Zakieh' },
+                { id: 'footer-logo-img', fallback: 'https://via.placeholder.com/44x44/2d7a32/ffffff?text=M' }
+            ];
+
+            imageElements.forEach(({ id, fallback }) => {
+                const img = document.getElementById(id);
+                if (img) {
+                    img.addEventListener('error', function() {
+                        this.src = fallback;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
