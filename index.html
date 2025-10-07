@@ -455,7 +455,6 @@
         .shape-pill { border-radius: 28px; }
         .shape-cut { 
             border-radius: 18px; 
-            clip-path: polygon(0 0, 96% 0, 100% 12%, 100% 100%, 0 100%); 
         }
         .shape-soft { border-radius: 20px; }
 
@@ -523,30 +522,30 @@
             padding: 1rem;
         }
 
-        .cta-ring {
-            width: 520px;
-            height: 520px;
-            border-radius: 50%;
-            background: conic-gradient(from 180deg, var(--gold), var(--blue), var(--emerald), var(--gold));
-            filter: saturate(1.05);
-            opacity: 0.9;
-        }
+    .cta-ring {
+    width: min(520px, 90vw);
+    height: min(520px, 90vw);
+    border-radius: 50%;
+    background: conic-gradient(from 180deg, var(--gold), var(--blue), var(--emerald), var(--gold));
+    filter: saturate(1.05);
+    opacity: 0.9;
+}
 
-        .cta-core {
-            position: absolute;
-            width: 480px;
-            height: 480px;
-            border-radius: 50%;
-            background: radial-gradient(100% 100% at 50% 0%, var(--soft-blue), var(--soft-gold));
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 4rem 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-            gap: 1.5rem;
-        }
+.cta-core {
+    position: absolute;
+    width: min(480px, 83vw);
+    height: min(480px, 83vw);
+    border-radius: 50%;
+    background: radial-gradient(100% 100% at 50% 0%, var(--soft-blue), var(--soft-gold));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 3rem);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    gap: 1.5rem;
+}
 
         .cta-core h2 {
             margin: 0;
@@ -979,20 +978,16 @@
             }
         }
 
-        @media (max-width: 620px) {
-            .cta-ring {
-                width: 360px;
-                height: 360px;
-            }
-            .cta-core {
-                width: 328px;
-                height: 328px;
-                padding: 1.25rem;
-            }
-            .cta-core h2 {
-                font-size: 1.45rem;
-            }
-        }
+     @media (max-width: 620px) {
+    .cta-core h2 {
+        font-size: 1.3rem;
+    }
+    .cta-core .btn {
+        font-size: 0.95rem;
+        padding: 0.85rem 1.5rem;
+    }
+}
+
     </style>
 </head>
 <body>
