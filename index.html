@@ -523,8 +523,10 @@
         }
 
     .cta-ring {
-    width: min(520px, 90vw, 90vh);
-    height: min(520px, 90vw, 90vh);
+    width: 520px;
+    height: 520px;
+    max-width: 90vw;
+    max-height: 90vw;
     border-radius: 50%;
     background: conic-gradient(from 180deg, var(--gold), var(--blue), var(--emerald), var(--gold));
     filter: saturate(1.05);
@@ -533,8 +535,10 @@
 
 .cta-core {
     position: absolute;
-    width: min(480px, 83vw, 83vh);
-    height: min(480px, 83vw, 83vh);
+    width: 480px;
+    height: 480px;
+    max-width: 83vw;
+    max-height: 83vw;
     border-radius: 50%;
     background: radial-gradient(100% 100% at 50% 0%, var(--soft-blue), var(--soft-gold));
     display: flex;
@@ -542,9 +546,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 3rem);
+    padding: 2rem 1.5rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    gap: clamp(0.75rem, 2vh, 1.5rem);
+    gap: 1rem;
 }
         .cta-core h2 {
             margin: 0;
@@ -977,13 +981,23 @@
             }
         }
 
-     @media (max-width: 620px) {
+    @media (max-width: 620px) {
     .cta-core h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        line-height: 1.2;
+        max-width: 220px;
     }
     .cta-core .btn {
-        font-size: 0.95rem;
-        padding: 0.85rem 1.5rem;
+        font-size: 0.85rem;
+        padding: 0.7rem 1.2rem;
+    }
+    .cta-note {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+    .cta-core {
+        padding: 1.5rem 1rem;
+        gap: 0.75rem;
     }
 }
 
