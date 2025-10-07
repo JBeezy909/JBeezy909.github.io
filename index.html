@@ -523,8 +523,8 @@
         }
 
     .cta-ring {
-    width: min(520px, 90vw);
-    height: min(520px, 90vw);
+    width: min(520px, 90vw, 90vh);
+    height: min(520px, 90vw, 90vh);
     border-radius: 50%;
     background: conic-gradient(from 180deg, var(--gold), var(--blue), var(--emerald), var(--gold));
     filter: saturate(1.05);
@@ -533,8 +533,8 @@
 
 .cta-core {
     position: absolute;
-    width: min(480px, 83vw);
-    height: min(480px, 83vw);
+    width: min(480px, 83vw, 83vh);
+    height: min(480px, 83vw, 83vh);
     border-radius: 50%;
     background: radial-gradient(100% 100% at 50% 0%, var(--soft-blue), var(--soft-gold));
     display: flex;
@@ -544,9 +544,8 @@
     text-align: center;
     padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 3rem);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    gap: 1.5rem;
+    gap: clamp(0.75rem, 2vh, 1.5rem);
 }
-
         .cta-core h2 {
             margin: 0;
             font-size: 1.6rem;
