@@ -522,30 +522,81 @@
             padding: 1rem;
         }
 
-    .cta-ring {
-    width: min(520px, 85vw, 85vh);
-    height: min(520px, 85vw, 85vh);
-    border-radius: 50%;
-    background: conic-gradient(from 180deg, var(--gold), var(--blue), var(--emerald), var(--gold));
-    filter: saturate(1.05);
-    opacity: 0.9;
+    /* --- FIX iPhone landscape CTA circle --- */
+.cta-ring-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  /* ensure enough vertical room even in landscape toolbars */
+  min-height: 60vmin;
 }
 
+/* Use the same grid cell for perfect stacking (no absolute positioning) */
+.cta-ring,
 .cta-core {
-    position: absolute;
-    width: min(480px, 78vw, 78vh);
-    height: min(480px, 78vw, 78vh);
-    border-radius: 50%;
-    background: radial-gradient(100% 100% at 50% 0%, var(--soft-blue), var(--soft-gold));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    gap: 1rem;
+  grid-area: 1 / 1;
 }
+
+/* Size circle by the shorter side; keep it perfectly round */
+.cta-ring {
+  width: clamp(260px, 70vmin, 520px);
+  height: clamp(260px, 70vmin, 520px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg, var(--gold), var(--blue), var(--emerald), var(--gold));
+  filter: saturate(1.05);
+  opacity: 0.9;
+}
+
+/* Core sits on top, centered by the grid, not absolute */
+.cta-core {
+  width: clamp(220px, 64vmin, 480px);
+  height: clamp(220px, 64vmin, 480px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: radial-gradient(100% 100% at 50% 0%, var(--soft-blue), var(--soft-gold));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  gap: 0.9rem;
+}
+
+/* Slightly tighter typography inside the core on small heights */
+@media (max-height: 420px) and (orientation: landscape) {
+  .cta-core h2 {
+    font-size: 1.1rem;
+    line-height: 1.25;
+    max-width: 18ch;
+  }
+  .cta-core .btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.1rem;
+  }
+  .cta-note {
+    font-size: 0.8rem;
+  }
+}
+
+/* Prefer stable viewport units on iOS Safari when supported */
+@supports (height: 1svh) {
+  .cta-ring {
+    width: clamp(260px, 70svmin, 520px);
+    height: clamp(260px, 70svmin, 520px);
+  }
+  .cta-core {
+    width: clamp(220px, 64svmin, 480px);
+    height: clamp(220px, 64svmin, 480px);
+  }
+  .cta-ring-wrap {
+    min-height: 60svmin;
+  }
+}
+
         .cta-core h2 {
             margin: 0;
             font-size: 1.6rem;
