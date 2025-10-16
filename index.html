@@ -512,39 +512,32 @@
     padding-top: 3rem;
     padding-bottom: 3.5rem;
     background: transparent;
-    overflow: hidden;
 }
 
 .cta-ring-wrap {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1rem;
-    min-height: 500px;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .cta-ring {
-    width: min(520px, 85vw);
-    height: min(520px, 85vw);
-    max-height: 520px;
+    width: 100%;
+    max-width: 520px;
     aspect-ratio: 1;
     border-radius: 50%;
     background: conic-gradient(from 180deg, var(--gold), var(--blue), var(--emerald), var(--gold));
     filter: saturate(1.05);
     opacity: 0.9;
-    flex-shrink: 0;
-    position: relative;
 }
 
 .cta-core {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(480px, 78vw);
-    height: min(480px, 78vw);
-    max-height: 480px;
+    width: calc(100% - 40px);
+    max-width: 480px;
     aspect-ratio: 1;
     border-radius: 50%;
     background: radial-gradient(100% 100% at 50% 0%, var(--soft-blue), var(--soft-gold));
@@ -553,14 +546,14 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     gap: 1rem;
 }
 
 .cta-core h2 {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
     font-weight: 900;
     color: var(--primary);
     letter-spacing: -0.01em;
@@ -989,11 +982,17 @@
             }
         }
 
-    @media (max-width: 620px) {
+@media (max-width: 620px) {
     .cta-section {
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
+    
+    .cta-ring-wrap {
+        max-width: 100%;
+        padding: 0.5rem;
+    }
+    
     .cta-core h2 {
         font-size: 1.15rem;
         line-height: 1.25;
